@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Hub | Roblox Luau Script Platform</title>
+    <title>QuantumHub | Türkiye'nin En İyi Roblox Script Platformu</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,162 +36,350 @@
 </head>
 <body class="bg-darkbg text-zinc-100 min-h-screen flex flex-col selection:bg-gold selection:text-black">
 
-    <!-- 1. GİRİŞ EKRANI (GMAIL ZORUNLU) -->
+    <!-- GİRİŞ / KAYIT MODALI -->
     <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
         <div class="bg-cardbg border border-darkborder p-8 rounded-2xl max-w-md w-full shadow-2xl relative overflow-hidden">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600"></div>
             <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gold/10 text-gold text-3xl mb-4 border border-gold/20">
-                    <i class="fa-solid fa-cube"></i>
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gold/10 text-gold text-3xl mb-4 border border-gold/20 shadow-lg shadow-gold/10">
+                    <i class="fa-solid fa-crown text-gold"></i>
                 </div>
-                <h1 class="text-2xl font-bold tracking-tight text-white">Quantum Hub</h1>
-                <p class="text-zinc-400 text-sm mt-1">Devam etmek için Gmail hesabınla giriş yapmalısın.</p>
+                <h1 class="text-2xl font-bold tracking-tight text-white">QuantumHub'a Hoş Geldin</h1>
+                <p class="text-zinc-400 text-sm mt-1">Devam etmek için giriş yap veya kayıt ol.</p>
             </div>
             
-            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+            <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Adın Soyadın / Rumuzun</label>
-                    <input type="text" id="loginName" required placeholder="Örn: ProGamer07" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Kullanıcı Adı / Rumuz</label>
+                    <input type="text" id="loginName" required placeholder="Örn: QuantumKral" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Gmail Adresin</label>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Gmail Adresi</label>
                     <input type="email" id="loginEmail" required placeholder="kullanici@gmail.com" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
                 </div>
-                <button type="submit" class="w-full bg-gold hover:bg-goldhover text-black font-bold py-3.5 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-gold/10">
-                    <i class="fa-brands fa-google"></i> Google ile Güvenli Giriş Yap
+                <button type="submit" class="w-full bg-gold hover:bg-goldhover text-black font-bold py-3.5 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-gold/20">
+                    <i class="fa-solid fa-right-to-bracket"></i> Giriş Yap / Kayıt Ol
                 </button>
             </form>
-            <p class="text-xs text-zinc-500 text-center mt-6">Giriş yaparak Quantum Hub Topluluk Kurallarını kabul etmiş olursun.</p>
         </div>
     </div>
 
-    <!-- 2. ANA UYGULAMA (GİRİŞ SONRASI) -->
+    <!-- ANA UYGULAMA DÜZENİ -->
     <div id="appContainer" class="hidden flex-1 flex flex-col md:flex-row">
         
-        <!-- SOL MENÜ (SIDEBAR) -->
-        <aside class="w-full md:w-72 bg-cardbg border-r border-darkborder flex flex-col justify-between p-6 shrink-0">
-            <div>
-                <!-- Logo & Brand -->
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="w-10 h-10 rounded-xl bg-gold flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-gold/20">
-                        Q
+        <!-- SOL SIDEBAR -->
+        <aside class="w-full md:w-72 bg-cardbg border-r border-darkborder flex flex-col justify-between p-6 shrink-0 space-y-6">
+            <div class="space-y-6">
+                <!-- Logo & Başlık -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-black font-extrabold text-2xl shadow-xl shadow-gold/20 border border-yellow-300/30">
+                        <i class="fa-solid fa-crown text-black"></i>
                     </div>
                     <div>
-                        <h2 class="font-extrabold text-lg text-white tracking-tight">Quantum Hub</h2>
-                        <span class="text-xs text-gold font-medium">Roblox Luau Script v2.4</span>
+                        <h2 class="font-extrabold text-lg text-white tracking-tight flex items-center gap-1.5">QuantumHub</h2>
+                        <span class="text-[11px] text-gold font-semibold tracking-wide">Kodun Gücü, Topluluğun Sesi!</span>
                     </div>
                 </div>
 
-                <!-- Kullanıcı Mini Profil Kartı -->
-                <div class="bg-zinc-900/80 border border-darkborder p-3.5 rounded-xl flex items-center gap-3 mb-6">
-                    <img id="sidebarAvatar" src="https://via.placeholder.com/150" class="w-11 h-11 rounded-full object-cover border border-gold/40">
-                    <div class="overflow-hidden">
-                        <h4 id="sidebarUsername" class="text-sm font-bold text-white truncate">Kullanıcı</h4>
-                        <p id="sidebarEmail" class="text-xs text-zinc-400 truncate">user@gmail.com</p>
-                    </div>
-                </div>
-
-                <!-- Navigasyon Sekmeleri -->
+                <!-- Navigasyon Menüsü -->
                 <nav class="space-y-1.5">
-                    <button onclick="switchTab('scripts')" id="nav-scripts" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition bg-gold text-black shadow-lg shadow-gold/10">
-                        <i class="fa-solid fa-code w-5 text-center"></i> Roblox Scriptler
+                    <button onclick="switchTab('home')" id="nav-home" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition bg-gold text-black shadow-lg shadow-gold/10">
+                        <i class="fa-solid fa-house w-5 text-center"></i> Ana Sayfa
                     </button>
                     <button onclick="switchTab('community')" id="nav-community" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
-                        <i class="fa-solid fa-comments w-5 text-center"></i> Topluluk Duvarı
+                        <i class="fa-solid fa-comments w-5 text-center"></i> Topluluk
                     </button>
-                    <button onclick="switchTab('myScripts')" id="nav-myScripts" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
-                        <i class="fa-solid fa-folder-open w-5 text-center"></i> Paylaştığım Scriptler
+                    <button onclick="switchTab('scripts')" id="nav-scripts" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
+                        <i class="fa-solid fa-code w-5 text-center"></i> Roblox Scriptleri
                     </button>
                     <button onclick="switchTab('profile')" id="nav-profile" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
-                        <i class="fa-solid fa-user-gear w-5 text-center"></i> Profilim
+                        <i class="fa-solid fa-user w-5 text-center"></i> Profilim
+                    </button>
+                    <button onclick="switchTab('messages')" id="nav-messages" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-envelope w-5 text-center"></i> Mesajlar</div>
+                        <span class="bg-gold text-black text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+                    </button>
+                    <button onclick="switchTab('notifications')" id="nav-notifications" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-bell w-5 text-center"></i> Bildirimler</div>
+                        <span class="bg-gold text-black text-xs font-bold px-2 py-0.5 rounded-full">5</span>
+                    </button>
+                    <button onclick="switchTab('settings')" id="nav-settings" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900">
+                        <i class="fa-solid fa-gear w-5 text-center"></i> Ayarlar
                     </button>
                 </nav>
+
+                <!-- Kullanıcı Profil Mini Kartı -->
+                <div class="bg-zinc-900/90 border border-darkborder p-4 rounded-2xl space-y-3 shadow-md">
+                    <div class="flex items-center gap-3">
+                        <img id="sidebarAvatar" src="https://via.placeholder.com/150" class="w-12 h-12 rounded-full object-cover border-2 border-gold/60 shadow">
+                        <div class="overflow-hidden">
+                            <h4 id="sidebarUsername" class="text-sm font-bold text-white truncate flex items-center gap-1">QuantumKral <i class="fa-solid fa-crown text-gold text-xs"></i></h4>
+                            <span class="inline-block px-2 py-0.5 bg-gold/10 text-gold text-[10px] font-bold rounded-md border border-gold/20">Üye</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-zinc-400 italic">"Daha iyi bir topluluk için buradayım! 💛"</p>
+                    <div class="grid grid-cols-3 gap-1 pt-2 border-t border-darkborder text-center">
+                        <div>
+                            <span id="statPostCount" class="block text-xs font-bold text-white">128</span>
+                            <span class="text-[10px] text-zinc-500">Gönderi</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-white">12.5K</span>
+                            <span class="text-[10px] text-zinc-500">Beğeni</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-white">1.1K</span>
+                            <span class="text-[10px] text-zinc-500">Takipçi</span>
+                        </div>
+                    </div>
+                    <button onclick="switchTab('profile')" class="w-full mt-2 bg-gold/10 hover:bg-gold hover:text-black text-gold font-bold py-2 rounded-xl text-xs transition border border-gold/30 flex items-center justify-center gap-1.5">
+                        Profilimi Görüntüle <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Topluluk Promo Kartı -->
+                <div class="bg-gradient-to-br from-amber-500/10 via-cardbg to-zinc-900 border border-gold/30 p-4 rounded-2xl relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-gold/10 text-6xl pointer-events-none"><i class="fa-solid fa-crown"></i></div>
+                    <h5 class="font-bold text-white text-sm mb-1 flex items-center gap-1.5"><i class="fa-solid fa-crown text-gold"></i> QuantumHub Topluluğuna Katıl!</h5>
+                    <p class="text-zinc-400 text-xs mb-3">Binlerce script, aktif topluluk ve daha fazlası seni bekliyor!</p>
+                    <button onclick="switchTab('community')" class="w-full bg-gold hover:bg-goldhover text-black font-bold py-2 rounded-xl text-xs transition shadow-md shadow-gold/10 flex items-center justify-center gap-1.5">
+                        Hemen Katıl <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
             </div>
 
-            <!-- Çıkış Yap Butonu -->
-            <div class="pt-6 border-t border-darkborder">
-                <button onclick="logout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-red-400 hover:bg-red-500/10 transition border border-red-500/20">
-                    <i class="fa-solid fa-right-from-bracket"></i> Hesaptan Çıkış Yap
-                </button>
-            </div>
+            <!-- Çıkış Butonu -->
+            <button onclick="logout()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/10 transition border border-red-500/20">
+                <i class="fa-solid fa-right-from-bracket"></i> Hesaptan Çıkış Yap
+            </button>
         </aside>
 
-        <!-- SAĞ ANA İÇERİK ALANI -->
+        <!-- SAĞ ANA İÇERİK BÖLGESİ -->
         <main class="flex-1 flex flex-col min-w-0 bg-darkbg">
             
-            <!-- ÜST HEADER -->
-            <header class="h-20 border-b border-darkborder px-6 md:px-10 flex items-center justify-between bg-cardbg/50 backdrop-blur sticky top-0 z-30">
-                <div class="flex items-center gap-4">
-                    <h3 id="currentTabTitle" class="text-lg md:text-xl font-bold text-white">Roblox Script Kütüphanesi</h3>
+            <!-- ÜST HEADER / ARAMA ÇUBUĞU -->
+            <header class="h-20 border-b border-darkborder px-6 md:px-10 flex items-center justify-between bg-cardbg/80 backdrop-blur sticky top-0 z-30 gap-4">
+                <div class="relative flex-1 max-w-2xl">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-sm"></i>
+                    <input type="text" id="globalSearch" oninput="filterFeed()" placeholder="Script, oyun veya kullanıcı ara..." class="w-full bg-zinc-900 border border-darkborder rounded-xl pl-11 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold transition">
                 </div>
-                <div class="flex items-center gap-3">
-                    <button onclick="openAddModal()" class="bg-gold hover:bg-goldhover text-black font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2 shadow-lg shadow-gold/10">
-                        <i class="fa-solid fa-plus text-xs"></i> Yeni Script Paylaş
+                <div class="flex items-center gap-3 shrink-0">
+                    <button class="w-10 h-10 rounded-xl bg-zinc-900 border border-darkborder flex items-center justify-center text-gold hover:bg-zinc-800 transition shadow">
+                        <i class="fa-solid fa-sun text-sm"></i>
                     </button>
+                    <div id="authHeaderButtons" class="flex items-center gap-2">
+                        <span id="headerUserName" class="text-xs font-bold text-gold bg-gold/10 px-3 py-2 rounded-xl border border-gold/20">Kullanıcı</span>
+                    </div>
                 </div>
             </header>
 
-            <!-- İÇERİK CONTAINER -->
-            <div class="p-6 md:p-10 flex-1 overflow-y-auto">
+            <!-- İÇERİK ALANI (2 Sütunlu Yapı) -->
+            <div class="p-6 md:p-8 flex-1 overflow-y-auto">
 
-                <!-- 1. SEKME: ROBLOX SCRIPTLER -->
-                <div id="tab-scripts" class="space-y-6">
-                    <!-- Arama Çubuğu -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-between items-center bg-cardbg border border-darkborder p-4 rounded-2xl">
-                        <div class="relative w-full sm:w-96">
-                            <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-sm"></i>
-                            <input type="text" id="searchInput" oninput="filterScripts()" placeholder="Oyun adı, başlık veya özellik ara (örn: MM2, Brookhaven)..." class="w-full bg-zinc-900 border border-darkborder rounded-xl pl-11 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold transition">
+                <!-- 1. ANA SAYFA / AKIŞ GÖRÜNÜMÜ -->
+                <div id="view-home" class="space-y-8">
+                    
+                    <!-- BANNEN HERO -->
+                    <div class="relative rounded-2xl overflow-hidden border border-gold/30 bg-gradient-to-r from-zinc-900 via-cardbg to-zinc-900 p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,0.1),transparent_50%)] pointer-events-none"></div>
+                        <div class="space-y-3 z-10 max-w-xl">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-bold">
+                                <i class="fa-solid fa-bolt"></i> Yeni Sürüm v3.0 Yayında
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">QuantumHub</h2>
+                            <p class="text-lg font-bold text-gold">Türkiye'nin En İyi Roblox Script Platformu!</p>
+                            <p class="text-xs text-zinc-400 leading-relaxed">Paylaş • Keşfet • Öğren • Geliş. En güvenli Luau scriptleri ve aktif geliştirici topluluğu burada.</p>
                         </div>
-                        <div class="text-xs text-zinc-400">
-                            Toplam <span id="scriptCount" class="text-gold font-bold">0</span> aktif script listeleniyor.
+                        <div class="z-10 shrink-0">
+                            <button onclick="switchTab('community')" class="bg-gold hover:bg-goldhover text-black font-extrabold px-6 py-3.5 rounded-xl text-sm transition shadow-lg shadow-gold/20 flex items-center gap-2">
+                                <i class="fa-solid fa-crown"></i> Topluluğa Katıl <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Script Kartları Grid -->
-                    <div id="scriptsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- JavaScript ile dinamik dolacak -->
+                    <!-- ORTA ANA IZGARA (Sol: Akış & Gönderi Paylaşma, Sağ: Widget'lar) -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        
+                        <!-- SOL 2 SÜTUN: GÖNDERİ PAYLAŞ + AKIŞ -->
+                        <div class="lg:col-span-2 space-y-6">
+                            
+                            <!-- YENİ GÖNDERİ PAYLAŞ KUTUSU -->
+                            <div class="bg-cardbg border border-darkborder p-6 rounded-2xl shadow-xl space-y-4">
+                                <div class="flex items-center justify-between pb-3 border-b border-darkborder">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-8 h-8 rounded-lg bg-gold/10 text-gold flex items-center justify-center font-bold text-sm"><i class="fa-solid fa-pen-nib"></i></div>
+                                        <div>
+                                            <h4 class="font-bold text-white text-sm">Yeni Gönderi Paylaş</h4>
+                                            <p class="text-[11px] text-zinc-400">Scriptini paylaş, topluluğa katıl!</p>
+                                        </div>
+                                    </div>
+                                    <span class="bg-amber-500/10 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-md border border-amber-500/20">Zorunlu Alanlar *</span>
+                                </div>
+
+                                <form id="feedPostForm" onsubmit="handlePostSubmit(event)" class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <!-- Görsel Yükleme Alanı -->
+                                        <div class="md:col-span-1">
+                                            <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Kapak Görseli</label>
+                                            <label class="border-2 border-dashed border-darkborder hover:border-gold/50 rounded-xl h-36 flex flex-col items-center justify-center cursor-pointer bg-zinc-900/50 transition group p-2 text-center">
+                                                <i class="fa-solid fa-image text-zinc-400 group-hover:text-gold text-2xl mb-1 transition"></i>
+                                                <span class="text-xs font-semibold text-zinc-300">Görsel Ekle</span>
+                                                <span class="text-[10px] text-zinc-500 mt-0.5">(Dosya veya Galeri)</span>
+                                                <input type="file" id="postImageFile" accept="image/*" required class="hidden" onchange="previewImageName(this)">
+                                            </label>
+                                            <p id="fileNameDisplay" class="text-[10px] text-gold truncate mt-1 text-center"></p>
+                                        </div>
+
+                                        <!-- Metin Alanları -->
+                                        <div class="md:col-span-2 space-y-3">
+                                            <div>
+                                                <input type="text" id="postTitle" required placeholder="Başlık (Örn: MM2 Hilesi)" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-gold transition">
+                                            </div>
+                                            <div>
+                                                <textarea id="postDesc" rows="2" required placeholder="Açıklama yaz (Hızlı koşma, uçma vb.)..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-3 text-xs text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
+                                            </div>
+                                            <div>
+                                                <textarea id="postCode" rows="2" required placeholder="Script Kodu (Lua) - loadstring(...) " class="w-full bg-black border border-darkborder rounded-xl p-3 font-mono text-[11px] text-gold focus:outline-none focus:border-gold transition resize-none"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex justify-end pt-2">
+                                        <button type="submit" class="bg-gold hover:bg-goldhover text-black font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-lg shadow-gold/10 flex items-center gap-2">
+                                            <i class="fa-solid fa-paper-plane"></i> Paylaş
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- DİNAMİK GÖNDERİLER AKIŞI -->
+                            <div id="postsFeedContainer" class="space-y-6">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+
+                        </div>
+
+                        <!-- SAĞ 1 SÜTUN: WIDGET'LAR (En Popüler, İstatistikler, Promo) -->
+                        <div class="space-y-6">
+                            
+                            <!-- EN POPÜLER SCRIPTLER WIDGET -->
+                            <div class="bg-cardbg border border-darkborder p-5 rounded-2xl shadow-xl space-y-4">
+                                <div class="flex items-center justify-between pb-3 border-b border-darkborder">
+                                    <h4 class="font-bold text-white text-sm flex items-center gap-2"><i class="fa-solid fa-fire text-amber-500"></i> En Popüler Scriptler</h4>
+                                    <button onclick="switchTab('scripts')" class="text-xs text-gold font-semibold hover:underline">Tümünü Gör →</button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-900/60 border border-darkborder hover:border-gold/40 transition cursor-pointer">
+                                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-lg object-cover">
+                                        <div class="overflow-hidden flex-1">
+                                            <h5 class="text-xs font-bold text-white truncate">Brookhaven Hile Paketi</h5>
+                                            <p class="text-[10px] text-zinc-400">98.7K görüntülenme</p>
+                                        </div>
+                                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-fire"></i> 8.9K</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-900/60 border border-darkborder hover:border-gold/40 transition cursor-pointer">
+                                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=200&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-lg object-cover">
+                                        <div class="overflow-hidden flex-1">
+                                            <h5 class="text-xs font-bold text-white truncate">MM2 Script v2.0</h5>
+                                            <p class="text-[10px] text-zinc-400">75.3K görüntülenme</p>
+                                        </div>
+                                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-fire"></i> 7.1K</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-900/60 border border-darkborder hover:border-gold/40 transition cursor-pointer">
+                                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-lg object-cover">
+                                        <div class="overflow-hidden flex-1">
+                                            <h5 class="text-xs font-bold text-white truncate">Blox Fruits Farm Script</h5>
+                                            <p class="text-[10px] text-zinc-400">62.1K görüntülenme</p>
+                                        </div>
+                                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-fire"></i> 6.4K</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SİTE İSTATİSTİKLERİ WIDGET -->
+                            <div class="bg-cardbg border border-darkborder p-5 rounded-2xl shadow-xl space-y-4">
+                                <div class="pb-3 border-b border-darkborder">
+                                    <h4 class="font-bold text-white text-sm flex items-center gap-2"><i class="fa-solid fa-chart-line text-gold"></i> Site İstatistikleri</h4>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 text-center">
+                                    <div class="bg-zinc-900/60 border border-darkborder p-3 rounded-xl">
+                                        <i class="fa-solid fa-users text-gold mb-1"></i>
+                                        <span class="block text-base font-extrabold text-white">12.4K</span>
+                                        <span class="text-[10px] text-zinc-400">Üye</span>
+                                    </div>
+                                    <div class="bg-zinc-900/60 border border-darkborder p-3 rounded-xl">
+                                        <i class="fa-solid fa-code text-gold mb-1"></i>
+                                        <span class="block text-base font-extrabold text-white">8.7K</span>
+                                        <span class="text-[10px] text-zinc-400">Script</span>
+                                    </div>
+                                    <div class="bg-zinc-900/60 border border-darkborder p-3 rounded-xl">
+                                        <i class="fa-solid fa-comments text-gold mb-1"></i>
+                                        <span class="block text-base font-extrabold text-white">26.1K</span>
+                                        <span class="text-[10px] text-zinc-400">Mesaj</span>
+                                    </div>
+                                    <div class="bg-zinc-900/60 border border-darkborder p-3 rounded-xl">
+                                        <i class="fa-solid fa-heart text-gold mb-1"></i>
+                                        <span class="block text-base font-extrabold text-white">98.2K</span>
+                                        <span class="text-[10px] text-zinc-400">Beğeni</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PROMO BANNER WIDGET -->
+                            <div class="bg-gradient-to-br from-amber-500/20 via-cardbg to-zinc-900 border border-gold/40 p-6 rounded-2xl text-center space-y-3 relative overflow-hidden shadow-xl">
+                                <div class="w-12 h-12 rounded-2xl bg-gold text-black flex items-center justify-center font-bold text-2xl mx-auto shadow-lg shadow-gold/30">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <h4 class="font-extrabold text-white text-base">QuantumHub</h4>
+                                <p class="text-xs text-zinc-300">Daha büyük bir topluluk için, sen de aramıza katıl!</p>
+                                <button onclick="switchTab('community')" class="w-full bg-gold hover:bg-goldhover text-black font-bold py-2.5 rounded-xl text-xs transition shadow-lg shadow-gold/20">
+                                    Hemen Kayıt Ol →
+                                </button>
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <!-- 2. SEKME: TOPLULUK DUVARI -->
-                <div id="tab-community" class="hidden space-y-6 max-w-3xl mx-auto">
-                    <div class="bg-cardbg border border-darkborder p-6 rounded-2xl shadow-xl">
-                        <h4 class="font-bold text-white text-base mb-3 flex items-center gap-2"><i class="fa-solid fa-pen-nib text-gold"></i> Topluluğa Mesaj veya Soru Gönder</h4>
-                        <textarea id="communityPostText" rows="3" placeholder="Fikirlerini, sorunlarını veya bulduğun taktikleri toplulukla paylaş..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 text-sm text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
-                        <div class="flex justify-end mt-3">
+                <!-- 2. TOPLULUK GÖRÜNÜMÜ -->
+                <div id="view-community" class="hidden space-y-6 max-w-3xl mx-auto">
+                    <div class="bg-cardbg border border-darkborder p-6 rounded-2xl shadow-xl space-y-4">
+                        <h4 class="font-bold text-white text-base flex items-center gap-2"><i class="fa-solid fa-comments text-gold"></i> Topluluk Sohbet & Tartışma Duvarı</h4>
+                        <textarea id="communityInput" rows="3" placeholder="Fikirlerini, sorularını veya bulduğun taktikleri toplulukla paylaş..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 text-sm text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
+                        <div class="flex justify-end">
                             <button onclick="postCommunityMessage()" class="bg-gold hover:bg-goldhover text-black font-bold px-6 py-2.5 rounded-xl text-sm transition shadow-md shadow-gold/10">Gönderiyi Paylaş</button>
                         </div>
                     </div>
-
-                    <div id="communityFeed" class="space-y-4">
-                        <!-- Dinamik akış -->
-                    </div>
+                    <div id="communityFeedList" class="space-y-4"></div>
                 </div>
 
-                <!-- 3. SEKME: PAYLAŞTIĞIM SCRIPTLER -->
-                <div id="tab-myScripts" class="hidden space-y-6">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-lg font-bold text-white">Yüklediğin ve Paylaştığın Scriptler</h4>
+                <!-- 3. ROBLOX SCRIPTLER GÖRÜNÜMÜ -->
+                <div id="view-scripts" class="hidden space-y-6">
+                    <div class="flex items-center justify-between bg-cardbg border border-darkborder p-4 rounded-2xl">
+                        <h3 class="text-base font-bold text-white">Roblox Luau Script Kütüphanesi</h3>
+                        <span class="text-xs text-gold font-bold" id="totalScriptCount">0 Script</span>
                     </div>
-                    <div id="myScriptsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Dinamik dolacak -->
-                    </div>
+                    <div id="allScriptsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </div>
 
-                <!-- 4. SEKME: PROFİLİM -->
-                <div id="tab-profile" class="hidden space-y-6 max-w-2xl mx-auto">
+                <!-- 4. PROFİLİM GÖRÜNÜMÜ -->
+                <div id="view-profile" class="hidden space-y-6 max-w-2xl mx-auto">
                     <div class="bg-cardbg border border-darkborder p-8 rounded-2xl shadow-xl space-y-6">
                         <div class="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-darkborder">
                             <div class="relative group">
-                                <img id="profilePreviewImg" src="https://via.placeholder.com/150" class="w-24 h-24 rounded-full object-cover border-2 border-gold shadow-lg">
-                                <label for="profileImageInput" class="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition cursor-pointer text-xs font-semibold">
+                                <img id="profileAvatarImg" src="https://via.placeholder.com/150" class="w-24 h-24 rounded-full object-cover border-2 border-gold shadow-lg">
+                                <label for="avatarFileInput" class="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition cursor-pointer text-xs font-semibold">
                                     Değiştir
                                 </label>
-                                <input type="file" id="profileImageInput" accept="image/*" onchange="updateProfileAvatar(event)" class="hidden">
+                                <input type="file" id="avatarFileInput" accept="image/*" onchange="updateAvatar(event)" class="hidden">
                             </div>
                             <div class="text-center sm:text-left">
-                                <h3 id="profileDisplayUsername" class="text-xl font-extrabold text-white">Kullanıcı Adı</h3>
-                                <p id="profileDisplayEmail" class="text-sm text-zinc-400 mt-0.5">user@gmail.com</p>
+                                <h3 id="profileNameDisplay" class="text-xl font-extrabold text-white flex items-center gap-1.5 justify-center sm:justify-start">QuantumKral <i class="fa-solid fa-crown text-gold"></i></h3>
+                                <p id="profileEmailDisplay" class="text-sm text-zinc-400 mt-0.5">user@gmail.com</p>
                                 <span class="inline-block mt-3 px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-bold rounded-full">Onaylı Geliştirici</span>
                             </div>
                         </div>
@@ -199,14 +387,83 @@
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Kullanıcı Adı</label>
-                                <input type="text" id="editUsername" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
+                                <input type="text" id="editProfileName" class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Hakkımda / Profil Açıklaması</label>
-                                <textarea id="editBio" rows="3" placeholder="Kendinden bahset..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 text-sm text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Profil Açıklaması / Bio</label>
+                                <textarea id="editProfileBio" rows="3" class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 text-sm text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
                             </div>
                             <div class="flex justify-end pt-2">
-                                <button onclick="saveProfileChanges()" class="bg-gold hover:bg-goldhover text-black font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-gold/10">Değişiklikleri Kaydet</button>
+                                <button onclick="saveProfile()" class="bg-gold hover:bg-goldhover text-black font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-gold/10">Değişiklikleri Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. MESAJLAR GÖRÜNÜMÜ -->
+                <div id="view-messages" class="hidden space-y-6 max-w-3xl mx-auto">
+                    <div class="bg-cardbg border border-darkborder p-6 rounded-2xl shadow-xl space-y-4">
+                        <h3 class="text-lg font-bold text-white">Gelen Mesajlar (3)</h3>
+                        <div class="space-y-3">
+                            <div class="p-4 rounded-xl bg-zinc-900/60 border border-darkborder flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-white">DevMaster</h5>
+                                        <p class="text-xs text-zinc-400">Scriptin gerçekten çok başarılı, eline sağlık!</p>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] text-zinc-500">10 dk önce</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-zinc-900/60 border border-darkborder flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold"><i class="fa-solid fa-user"></i></div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-white">ProScripter</h5>
+                                        <p class="text-xs text-zinc-400">Bana MM2 scripti konusunda yardımcı olabilir misin?</p>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] text-zinc-500">1 saat önce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. BİLDİRİMLER GÖRÜNÜMÜ -->
+                <div id="view-notifications" class="hidden space-y-6 max-w-3xl mx-auto">
+                    <div class="bg-cardbg border border-darkborder p-6 rounded-2xl shadow-xl space-y-4">
+                        <h3 class="text-lg font-bold text-white">Bildirimler (5)</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3.5 rounded-xl bg-zinc-900/60 border border-darkborder flex items-center gap-3">
+                                <i class="fa-solid fa-heart text-red-500 text-base"></i>
+                                <p class="text-zinc-300 text-xs"><strong class="text-white">Admin</strong> gönderini beğendi.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-zinc-900/60 border border-darkborder flex items-center gap-3">
+                                <i class="fa-solid fa-crown text-gold text-base"></i>
+                                <p class="text-zinc-300 text-xs"><strong class="text-white">QuantumHub</strong> platformuna hoş geldin rozeti eklendi!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. AYARLAR GÖRÜNÜMÜ -->
+                <div id="view-settings" class="hidden space-y-6 max-w-2xl mx-auto">
+                    <div class="bg-cardbg border border-darkborder p-8 rounded-2xl shadow-xl space-y-6">
+                        <h3 class="text-lg font-bold text-white">Hesap ve Site Ayarları</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-center justify-between py-3 border-b border-darkborder">
+                                <div>
+                                    <h5 class="font-bold text-white text-xs">Koyu Tema (Quantum Gold)</h5>
+                                    <p class="text-[11px] text-zinc-400">Özel koyu ve sarı tema aktif.</p>
+                                </div>
+                                <input type="checkbox" checked class="accent-gold w-4 h-4">
+                            </div>
+                            <div class="flex items-center justify-between py-3 border-b border-darkborder">
+                                <div>
+                                    <h5 class="font-bold text-white text-xs">E-Posta Bildirimleri</h5>
+                                    <p class="text-[11px] text-zinc-400">Yeni scriptler ve güncellemeler hakkında bildirim al.</p>
+                                </div>
+                                <input type="checkbox" checked class="accent-gold w-4 h-4">
                             </div>
                         </div>
                     </div>
@@ -216,109 +473,52 @@
         </main>
     </div>
 
-    <!-- 3. MODAL: YENİ SCRIPT PAYLAŞ -->
-    <div id="addScriptModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
-        <div class="bg-cardbg border border-darkborder p-6 md:p-8 rounded-2xl max-w-xl w-full shadow-2xl relative my-8">
-            <div class="flex items-center justify-between mb-6 pb-4 border-b border-darkborder">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-code text-gold"></i> Yeni Script Paylaş</h3>
-                <button onclick="closeAddModal()" class="text-zinc-400 hover:text-white transition"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-
-            <form id="scriptForm" onsubmit="handleScriptSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Kapak Fotoğrafı (Dosyadan Seç)</label>
-                    <input type="file" id="scriptImageFile" accept="image/*" required class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-2.5 text-sm text-zinc-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gold file:text-black hover:file:bg-goldhover transition">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Başlık (Örn: MM2 Godly & Knife Hub)</label>
-                    <input type="text" id="scriptTitle" required placeholder="Oyun ve script başlığı..." class="w-full bg-zinc-900 border border-darkborder rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Özellikler / Açıklama (Hızlı koşma, uçma vb.)</label>
-                    <textarea id="scriptDesc" rows="3" required placeholder="Hilenin/scriptin içindeki özellikleri detaylıca yazın..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 text-sm text-white focus:outline-none focus:border-gold transition resize-none"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Luau Script Kodu</label>
-                    <textarea id="scriptCode" rows="5" required placeholder="loadstring(game:HttpGet('...'))()..." class="w-full bg-zinc-900 border border-darkborder rounded-xl p-4 font-mono text-xs text-gold focus:outline-none focus:border-gold transition resize-none"></textarea>
-                </div>
-
-                <div class="flex justify-end gap-3 pt-4 border-t border-darkborder">
-                    <button type="button" onclick="closeAddModal()" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-zinc-400 hover:text-white transition">İptal</button>
-                    <button type="submit" class="bg-gold hover:bg-goldhover text-black font-bold px-6 py-2.5 rounded-xl text-sm transition shadow-lg shadow-gold/10">Scripti Paylaş</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- 4. MODAL: SCRIPT DETAY & KOPYALA -->
-    <div id="scriptDetailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
+    <!-- SCRIPT DETAY / KOD GÖRÜNTÜLEME MODALI -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
         <div class="bg-cardbg border border-darkborder p-6 md:p-8 rounded-2xl max-w-2xl w-full shadow-2xl relative my-8">
-            <button onclick="closeDetailModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition z-10 bg-zinc-900/80 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
-            
-            <div id="modalContentBody" class="space-y-6">
-                <!-- Dinamik detay içeriği -->
-            </div>
+            <button onclick="closeDetailModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition z-10 bg-zinc-900 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div id="modalBodyContent" class="space-y-6"></div>
         </div>
     </div>
 
     <!-- JAVASCRIPT MANTIĞI -->
     <script>
-        // Veri Tabanı / State Yükleme
         let currentUser = JSON.parse(localStorage.getItem('quantum_user')) || null;
-        let scripts = JSON.parse(localStorage.getItem('quantum_scripts')) || [
+        let posts = JSON.parse(localStorage.getItem('quantum_posts')) || [
             {
                 id: '1',
-                title: 'MM2 Supreme Hub - Godly & ESP',
-                desc: 'Hızlı koşma, Sheriff ESP, Murderer ESP, otomatik coin toplama ve bıçak aura özellikleri içerir.',
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/quantumhub/mm2/main/loader.lua"))()',
+                title: 'Brookhaven için en iyi script!',
+                desc: 'Bu script ile hızlı koşma, uçma, noclip ve daha fazlası mümkün! Kendi deneyimimle test ettim, sorunsuz çalışıyor. 💪',
+                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/quantumhub/brookhaven/main/source.lua"))()',
                 image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80',
-                author: 'Admin',
-                authorEmail: 'admin@quantum.com',
-                date: '2026-10-24'
-            },
-            {
-                id: '2',
-                title: 'Blox Fruits Auto Farm & Boss Killa',
-                desc: 'Otomatik level kasma, sea beast avcısı, fruit notifier ve hızlı teleport özellikleri.',
-                code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/quantumhub/bloxfruits/main/source.lua"))()',
-                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80',
-                author: 'DevMaster',
-                authorEmail: 'dev@quantum.com',
-                date: '2026-10-25'
+                author: 'ProScriptTR',
+                date: '2 saat önce',
+                likes: 742,
+                comments: 128
             }
         ];
-        let communityPosts = JSON.parse(localStorage.getItem('quantum_posts')) || [
-            { id: '1', author: 'Admin', text: 'Quantum Hub v2.4 güncellemesi yaygındır! Herkes kendi scriptlerini paylaşabilir.', date: '2 saat önce' }
+        let communityMessages = JSON.parse(localStorage.getItem('quantum_com_msgs')) || [
+            { id: '1', author: 'QuantumKral', text: 'QuantumHub v3.0 arayüzü efsane olmuş kankalar! Herkese iyi kodlamalar.', date: 'Şimdi' }
         ];
 
-        // Sayfa Yüklenme Kontrolü
         window.onload = function() {
             if (currentUser) {
                 initApp();
             }
         }
 
-        // Giriş İşlemi
         function handleLogin(e) {
             e.preventDefault();
             const name = document.getElementById('loginName').value.trim();
             const email = document.getElementById('loginEmail').value.trim();
-
-            if (!name || !email) {
-                alert('Lütfen tüm alanları doldurun!');
-                return;
-            }
+            if (!name || !email) return;
 
             currentUser = {
                 name: name,
                 email: email,
                 avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=' + name,
-                bio: 'Quantum Hub topluluk üyesi.'
+                bio: 'Daha iyi bir topluluk için buradayım! 💛'
             };
-
             localStorage.setItem('quantum_user', JSON.stringify(currentUser));
             initApp();
         }
@@ -327,21 +527,18 @@
             document.getElementById('authModal').classList.add('hidden');
             document.getElementById('appContainer').classList.remove('hidden');
 
-            // Sidebar Güncelle
-            document.getElementById('sidebarUsername').innerText = currentUser.name;
-            document.getElementById('sidebarEmail').innerText = currentUser.email;
+            document.getElementById('sidebarUsername').innerHTML = `${currentUser.name} <i class="fa-solid fa-crown text-gold text-xs"></i>`;
             document.getElementById('sidebarAvatar').src = currentUser.avatar;
+            document.getElementById('headerUserName').innerText = currentUser.name;
+            document.getElementById('profileNameDisplay').innerHTML = `${currentUser.name} <i class="fa-solid fa-crown text-gold"></i>`;
+            document.getElementById('profileEmailDisplay').innerText = currentUser.email;
+            document.getElementById('profileAvatarImg').src = currentUser.avatar;
+            document.getElementById('editProfileName').value = currentUser.name;
+            document.getElementById('editProfileBio').value = currentUser.bio || '';
 
-            // Profil Alanı Güncelle
-            document.getElementById('profileDisplayUsername').innerText = currentUser.name;
-            document.getElementById('profileDisplayEmail').innerText = currentUser.email;
-            document.getElementById('profilePreviewImg').src = currentUser.avatar;
-            document.getElementById('editUsername').value = currentUser.name;
-            document.getElementById('editBio').value = currentUser.bio || '';
-
-            renderScripts();
+            renderPosts();
             renderCommunity();
-            renderMyScripts();
+            renderAllScripts();
         }
 
         function logout() {
@@ -349,159 +546,185 @@
             location.reload();
         }
 
-        // Sekme Değiştirme
         function switchTab(tabName) {
-            const tabs = ['scripts', 'community', 'myScripts', 'profile'];
+            const tabs = ['home', 'community', 'scripts', 'profile', 'messages', 'notifications', 'settings'];
             tabs.forEach(t => {
-                document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('nav-' + t).className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900";
+                document.getElementById('view-' + t).classList.add('hidden');
+                const btn = document.getElementById('nav-' + t);
+                if (btn) {
+                    btn.className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-zinc-400 hover:text-white hover:bg-zinc-900";
+                }
             });
 
-            document.getElementById('tab-' + tabName).classList.remove('hidden');
-            document.getElementById('nav-' + tabName).className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition bg-gold text-black shadow-lg shadow-gold/10";
-
-            const titles = {
-                scripts: 'Roblox Script Kütüphanesi',
-                community: 'Topluluk Duvarı',
-                myScripts: 'Paylaştığım Scriptler',
-                profile: 'Kullanıcı Profili'
-            };
-            document.getElementById('currentTabTitle').innerText = titles[tabName];
-        }
-
-        // Scriptleri Listele
-        function renderScripts(filter = '') {
-            const grid = document.getElementById('scriptsGrid');
-            grid.innerHTML = '';
-
-            const filtered = scripts.filter(s => 
-                s.title.toLowerCase().includes(filter.toLowerCase()) || 
-                s.desc.toLowerCase().includes(filter.toLowerCase())
-            );
-
-            document.getElementById('scriptCount').innerText = filtered.length;
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-zinc-500">Aradığın kritere uygun script bulunamadı.</div>`;
-                return;
+            document.getElementById('view-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('nav-' + tabName);
+            if (activeBtn) {
+                activeBtn.className = "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition bg-gold text-black shadow-lg shadow-gold/10";
             }
-
-            filtered.forEach(s => {
-                grid.innerHTML += `
-                    <div onclick="openDetailModal('${s.id}')" class="bg-cardbg border border-darkborder rounded-2xl overflow-hidden hover:border-gold/50 transition cursor-pointer group flex flex-col justify-between shadow-lg">
-                        <div>
-                            <div class="h-44 w-full overflow-hidden relative bg-zinc-900">
-                                <img src="${s.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <span class="absolute top-3 right-3 bg-black/70 backdrop-blur text-gold text-xs font-bold px-3 py-1 rounded-full border border-gold/20">Luau</span>
-                            </div>
-                            <div class="p-5 space-y-2">
-                                <h4 class="font-bold text-white text-base group-hover:text-gold transition truncate">${s.title}</h4>
-                                <p class="text-zinc-400 text-xs line-clamp-2 leading-relaxed">${s.desc}</p>
-                            </div>
-                        </div>
-                        <div class="px-5 pb-5 pt-3 border-t border-darkborder/50 flex items-center justify-between text-xs text-zinc-500">
-                            <span><i class="fa-solid fa-user text-gold/80 mr-1"></i> ${s.author}</span>
-                            <span class="text-gold font-semibold flex items-center gap-1">İncele <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                        </div>
-                    </div>
-                `;
-            });
         }
 
-        function filterScripts() {
-            const query = document.getElementById('searchInput').value;
-            renderScripts(query);
+        function previewImageName(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('fileNameDisplay').innerText = "Seçilen: " + input.files[0].name;
+            }
         }
 
-        // Script Ekleme Modal İşlemleri
-        function openAddModal() {
-            document.getElementById('addScriptModal').classList.remove('hidden');
-            document.getElementById('addScriptModal').classList.add('flex');
-        }
-        function closeAddModal() {
-            document.getElementById('addScriptModal').classList.add('hidden');
-            document.getElementById('addScriptModal').classList.remove('flex');
-            document.getElementById('scriptForm').reset();
-        }
-
-        function handleScriptSubmit(e) {
+        function handlePostSubmit(e) {
             e.preventDefault();
-            const title = document.getElementById('scriptTitle').value.trim();
-            const desc = document.getElementById('scriptDesc').value.trim();
-            const code = document.getElementById('scriptCode').value.trim();
-            const fileInput = document.getElementById('scriptImageFile');
+            const title = document.getElementById('postTitle').value.trim();
+            const desc = document.getElementById('postDesc').value.trim();
+            const code = document.getElementById('postCode').value.trim();
+            const fileInput = document.getElementById('postImageFile');
 
             if (!title || !desc || !code || fileInput.files.length === 0) {
-                alert('Lütfen tüm alanları doldurun ve kapak fotoğrafı seçin!');
+                alert('Lütfen tüm zorunlu alanları doldurun ve kapak görseli seçin!');
                 return;
             }
 
             const reader = new FileReader();
             reader.onload = function(event) {
-                const newScript = {
+                const newPost = {
                     id: Date.now().toString(),
                     title,
                     desc,
                     code,
                     image: event.target.result,
                     author: currentUser.name,
-                    authorEmail: currentUser.email,
-                    date: new Date().toISOString().split('T')[0]
+                    date: 'Şimdi',
+                    likes: 1,
+                    comments: 0
                 };
 
-                scripts.unshift(newScript);
-                localStorage.setItem('quantum_scripts', JSON.stringify(scripts));
+                posts.unshift(newPost);
+                localStorage.setItem('quantum_posts', JSON.stringify(posts));
+                document.getElementById('postTitle').value = '';
+                document.getElementById('postDesc').value = '';
+                document.getElementById('postCode').value = '';
+                document.getElementById('postImageFile').value = '';
+                document.getElementById('fileNameDisplay').innerText = '';
                 
-                closeAddModal();
-                renderScripts();
-                renderMyScripts();
-                alert('Script başarıyla paylaşıldı!');
+                renderPosts();
+                renderAllScripts();
+                alert('Gönderi ve Script başarıyla paylaşıldı!');
             };
             reader.readAsDataURL(fileInput.files[0]);
         }
 
-        // Script Detay ve Kopyalama
-        function openDetailModal(id) {
-            const s = scripts.find(item => item.id === id);
-            if (!s) return;
+        function renderPosts(filter = '') {
+            const container = document.getElementById('postsFeedContainer');
+            container.innerHTML = '';
 
-            const body = document.getElementById('modalContentBody');
-            body.innerHTML = `
-                <div class="rounded-xl overflow-hidden h-64 w-full bg-zinc-900 border border-darkborder mb-6">
-                    <img src="${s.image}" class="w-full h-full object-cover">
+            const filtered = posts.filter(p => 
+                p.title.toLowerCase().includes(filter.toLowerCase()) || 
+                p.desc.toLowerCase().includes(filter.toLowerCase()) ||
+                p.author.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-zinc-500 bg-cardbg rounded-2xl border border-darkborder">Aramaya uygun gönderi bulunamadı.</div>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                container.innerHTML += `
+                    <div class="bg-cardbg border border-darkborder rounded-2xl overflow-hidden shadow-xl space-y-4">
+                        <div class="p-6 pb-0 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold border border-gold/30">
+                                    <i class="fa-solid fa-crown text-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm flex items-center gap-1.5">${p.author} <i class="fa-solid fa-crown text-gold text-xs"></i><i class="fa-solid fa-circle-check text-blue-400 text-[10px]"></i></h4>
+                                    <p class="text-[11px] text-zinc-500">${p.date}</p>
+                                </div>
+                            </div>
+                            <button class="text-zinc-400 hover:text-white"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        </div>
+
+                        <div class="px-6 space-y-2">
+                            <h3 class="font-extrabold text-white text-base">${p.title}</h3>
+                            <p class="text-zinc-300 text-xs leading-relaxed">${p.desc}</p>
+                        </div>
+
+                        <div class="h-64 w-full bg-zinc-900 relative overflow-hidden border-y border-darkborder">
+                            <img src="${p.image}" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="px-6 space-y-2">
+                            <h5 class="text-xs font-bold text-gold uppercase tracking-wider">Özellikler:</h5>
+                            <ul class="grid grid-cols-2 gap-2 text-xs text-zinc-300">
+                                <li><i class="fa-solid fa-check text-gold mr-1.5"></i> Hızlı Koşma</li>
+                                <li><i class="fa-solid fa-check text-gold mr-1.5"></i> Uçma (Fly)</li>
+                                <li><i class="fa-solid fa-check text-gold mr-1.5"></i> Noclip</li>
+                                <li><i class="fa-solid fa-check text-gold mr-1.5"></i> Desteklenen Luau</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 pt-3 border-t border-darkborder flex items-center justify-between text-xs text-zinc-400">
+                            <div class="flex items-center gap-4">
+                                <button onclick="likePost('${p.id}')" class="flex items-center gap-1.5 hover:text-gold transition"><i class="fa-solid fa-heart text-red-500"></i> ${p.likes}</button>
+                                <button class="flex items-center gap-1.5 hover:text-gold transition"><i class="fa-solid fa-comment text-gold"></i> ${p.comments}</button>
+                                <button class="flex items-center gap-1.5 hover:text-gold transition"><i class="fa-solid fa-share text-zinc-400"></i> Paylaş</button>
+                            </div>
+                            <button onclick="openDetailModal('${p.id}')" class="bg-gold hover:bg-goldhover text-black font-bold px-4 py-2 rounded-xl transition shadow flex items-center gap-1.5">
+                                Scripti Görüntüle <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function likePost(id) {
+            const p = posts.find(item => item.id === id);
+            if (p) {
+                p.likes++;
+                localStorage.setItem('quantum_posts', JSON.stringify(posts));
+                renderPosts();
+            }
+        }
+
+        function filterFeed() {
+            const query = document.getElementById('globalSearch').value;
+            renderPosts(query);
+        }
+
+        function openDetailModal(id) {
+            const p = posts.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('modalBodyContent').innerHTML = `
+                <div class="rounded-xl overflow-hidden h-56 w-full bg-zinc-900 border border-darkborder mb-4">
+                    <img src="${p.image}" class="w-full h-full object-cover">
                 </div>
-                <h2 class="text-xl font-extrabold text-white mb-2">${s.title}</h2>
-                <div class="flex items-center gap-4 text-xs text-zinc-400 mb-4">
-                    <span><i class="fa-solid fa-user text-gold mr-1"></i> Yazar: ${s.author}</span>
-                    <span><i class="fa-solid fa-calendar text-gold mr-1"></i> ${s.date}</span>
-                </div>
-                <p class="text-sm text-zinc-300 leading-relaxed bg-zinc-900/60 p-4 rounded-xl border border-darkborder mb-6">${s.desc}</p>
+                <h3 class="text-lg font-bold text-white mb-1">${p.title}</h3>
+                <p class="text-xs text-zinc-400 mb-4">Yazar: ${p.author} • ${p.date}</p>
+                <p class="text-sm text-zinc-300 bg-zinc-900/60 p-4 rounded-xl border border-darkborder mb-4">${p.desc}</p>
                 
                 <div class="space-y-2">
                     <div class="flex justify-between items-center">
                         <label class="text-xs font-semibold uppercase tracking-wider text-gold">Luau Script Kodu</label>
-                        <button onclick="copyCode('${s.id}')" id="copyBtn-${s.id}" class="bg-gold hover:bg-goldhover text-black font-bold px-4 py-1.5 rounded-lg text-xs transition shadow flex items-center gap-1.5">
+                        <button onclick="copyModalCode('${p.id}')" id="modalCopyBtn" class="bg-gold hover:bg-goldhover text-black font-bold px-4 py-1.5 rounded-lg text-xs transition flex items-center gap-1.5">
                             <i class="fa-solid fa-copy"></i> Kodu Kopyala
                         </button>
                     </div>
-                    <textarea readonly rows="5" class="w-full bg-black border border-darkborder rounded-xl p-4 font-mono text-xs text-gold focus:outline-none resize-none">${s.code}</textarea>
+                    <textarea readonly rows="5" class="w-full bg-black border border-darkborder rounded-xl p-4 font-mono text-xs text-gold focus:outline-none resize-none">${p.code}</textarea>
                 </div>
             `;
-
-            document.getElementById('scriptDetailModal').classList.remove('hidden');
-            document.getElementById('scriptDetailModal').classList.add('flex');
+            document.getElementById('detailModal').classList.remove('hidden');
+            document.getElementById('detailModal').classList.add('flex');
         }
 
         function closeDetailModal() {
-            document.getElementById('scriptDetailModal').classList.add('hidden');
-            document.getElementById('scriptDetailModal').classList.remove('flex');
+            document.getElementById('detailModal').classList.add('hidden');
+            document.getElementById('detailModal').classList.remove('flex');
         }
 
-        function copyCode(id) {
-            const s = scripts.find(item => item.id === id);
-            if (s) {
-                navigator.clipboard.writeText(s.code);
-                const btn = document.getElementById(`copyBtn-${id}`);
+        function copyModalCode(id) {
+            const p = posts.find(item => item.id === id);
+            if (p) {
+                navigator.clipboard.writeText(p.code);
+                const btn = document.getElementById('modalCopyBtn');
                 btn.innerHTML = `<i class="fa-solid fa-check"></i> Kopyalandı!`;
                 btn.classList.add('bg-green-500', 'text-white');
                 setTimeout(() => {
@@ -511,96 +734,70 @@
             }
         }
 
-        // Paylaştığım Scriptler
-        function renderMyScripts() {
-            const grid = document.getElementById('myScriptsGrid');
+        function renderAllScripts() {
+            const grid = document.getElementById('allScriptsGrid');
             grid.innerHTML = '';
+            document.getElementById('totalScriptCount').innerText = posts.length + ' Script';
 
-            const myScripts = scripts.filter(s => s.authorEmail === currentUser.email);
-
-            if (myScripts.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-zinc-500">Henüz paylaştığın bir script yok. Sağ üstten yeni bir tane ekleyebilirsin!</div>`;
-                return;
-            }
-
-            myScripts.forEach(s => {
+            posts.forEach(p => {
                 grid.innerHTML += `
-                    <div class="bg-cardbg border border-darkborder rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between">
+                    <div onclick="openDetailModal('${p.id}')" class="bg-cardbg border border-darkborder rounded-2xl overflow-hidden hover:border-gold/50 transition cursor-pointer group flex flex-col justify-between shadow-xl">
                         <div>
-                            <div class="h-36 w-full overflow-hidden relative bg-zinc-900">
-                                <img src="${s.image}" class="w-full h-full object-cover">
+                            <div class="h-40 w-full overflow-hidden relative bg-zinc-900">
+                                <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 right-3 bg-black/70 backdrop-blur text-gold text-[10px] font-bold px-2.5 py-1 rounded-full border border-gold/20">Luau</span>
                             </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-white text-sm truncate">${s.title}</h4>
-                                <p class="text-zinc-400 text-xs line-clamp-2">${s.desc}</p>
+                            <div class="p-4 space-y-1.5">
+                                <h4 class="font-bold text-white text-sm group-hover:text-gold transition truncate">${p.title}</h4>
+                                <p class="text-zinc-400 text-xs line-clamp-2">${p.desc}</p>
                             </div>
                         </div>
-                        <div class="p-4 pt-2 border-t border-darkborder flex items-center justify-between">
-                            <button onclick="openDetailModal('${s.id}')" class="text-gold text-xs font-bold hover:underline">Görüntüle</button>
-                            <button onclick="deleteScript('${s.id}')" class="text-red-400 text-xs font-semibold hover:underline">Sil</button>
+                        <div class="px-4 pb-4 pt-2 border-t border-darkborder flex items-center justify-between text-xs text-zinc-500">
+                            <span><i class="fa-solid fa-user text-gold/80 mr-1"></i> ${p.author}</span>
+                            <span class="text-gold font-semibold flex items-center gap-1">İncele <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                         </div>
                     </div>
                 `;
             });
         }
 
-        function deleteScript(id) {
-            if (confirm('Bu scripti silmek istediğine emin misin?')) {
-                scripts = scripts.filter(s => s.id !== id);
-                localStorage.setItem('quantum_scripts', JSON.stringify(scripts));
-                renderScripts();
-                renderMyScripts();
-            }
-        }
-
-        // Topluluk Duvarı
         function renderCommunity() {
-            const feed = document.getElementById('communityFeed');
-            feed.innerHTML = '';
-
-            if (communityPosts.length === 0) {
-                feed.innerHTML = `<div class="text-center py-8 text-zinc-500">Henüz hiç mesaj atılmamış. İlk mesajı sen gönder!</div>`;
-                return;
-            }
-
-            communityPosts.forEach(p => {
-                feed.innerHTML += `
-                    <div class="bg-cardbg border border-darkborder p-5 rounded-2xl space-y-2">
+            const list = document.getElementById('communityFeedList');
+            list.innerHTML = '';
+            communityMessages.forEach(m => {
+                list.innerHTML += `
+                    <div class="bg-cardbg border border-darkborder p-5 rounded-2xl space-y-2 shadow-md">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold text-white text-sm flex items-center gap-2"><i class="fa-solid fa-circle-user text-gold"></i> ${p.author}</span>
-                            <span class="text-xs text-zinc-500">${p.date}</span>
+                            <span class="font-bold text-white text-sm flex items-center gap-1.5"><i class="fa-solid fa-crown text-gold"></i> ${m.author}</span>
+                            <span class="text-xs text-zinc-500">${m.date}</span>
                         </div>
-                        <p class="text-zinc-300 text-sm leading-relaxed">${p.text}</p>
+                        <p class="text-zinc-300 text-sm leading-relaxed">${m.text}</p>
                     </div>
                 `;
             });
         }
 
         function postCommunityMessage() {
-            const text = document.getElementById('communityPostText').value.trim();
+            const text = document.getElementById('communityInput').value.trim();
             if (!text) return;
-
-            const newPost = {
+            communityMessages.unshift({
                 id: Date.now().toString(),
                 author: currentUser.name,
                 text: text,
                 date: 'Şimdi'
-            };
-
-            communityPosts.unshift(newPost);
-            localStorage.setItem('quantum_posts', JSON.stringify(communityPosts));
-            document.getElementById('communityPostText').value = '';
+            });
+            localStorage.setItem('quantum_com_msgs', JSON.stringify(communityMessages));
+            document.getElementById('communityInput').value = '';
             renderCommunity();
         }
 
-        // Profil Güncelleme
-        function updateProfileAvatar(e) {
+        function updateAvatar(e) {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     currentUser.avatar = event.target.result;
-                    document.getElementById('profilePreviewImg').src = currentUser.avatar;
+                    document.getElementById('profileAvatarImg').src = currentUser.avatar;
                     document.getElementById('sidebarAvatar').src = currentUser.avatar;
                     localStorage.setItem('quantum_user', JSON.stringify(currentUser));
                 };
@@ -608,22 +805,17 @@
             }
         }
 
-        function saveProfileChanges() {
-            const newName = document.getElementById('editUsername').value.trim();
-            const newBio = document.getElementById('editBio').value.trim();
-
-            if (!newName) {
-                alert('Kullanıcı adı boş olamaz!');
-                return;
-            }
-
+        function saveProfile() {
+            const newName = document.getElementById('editProfileName').value.trim();
+            const newBio = document.getElementById('editProfileBio').value.trim();
+            if (!newName) return;
             currentUser.name = newName;
             currentUser.bio = newBio;
             localStorage.setItem('quantum_user', JSON.stringify(currentUser));
-            
-            document.getElementById('sidebarUsername').innerText = currentUser.name;
-            document.getElementById('profileDisplayUsername').innerText = currentUser.name;
-            alert('Profil başarıyla güncellendi!');
+            document.getElementById('sidebarUsername').innerHTML = `${currentUser.name} <i class="fa-solid fa-crown text-gold text-xs"></i>`;
+            document.getElementById('profileNameDisplay').innerHTML = `${currentUser.name} <i class="fa-solid fa-crown text-gold"></i>`;
+            document.getElementById('headerUserName').innerText = currentUser.name;
+            alert('Profil güncellendi!');
         }
     </script>
 </body>
